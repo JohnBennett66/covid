@@ -5,13 +5,15 @@
 
 ###  Deaths - DAILY CHANGE  ####
 # variables for limits, placements, etc
+when <- df[,date(mdy_hms(max(runtime, na.rm = TRUE)))]
 start.date <- ymd(20200229)
 end.date <- Sys.Date()
 place.one <- start.date + 6
 hgt <- us.date.d[,max(diff) + 100]
-hgt.ma <- us.date.d[,max(basic) + 100]
-ma.date <- us.date.d[basic==max(basic),date]
+hgt.ma <- us.date.d[,max(diff) + 100]
+ma.date <- us.date.d[diff==max(diff),date]
 outlier.date <- ymd(20200331)
+max.date <- us.date.d[,max(date)]
 # calculations for labelling
 dly.avg.d <- round(us.date.d[,mean(diff)],0)
 dly.avg.d.or <- round(us.date.d[between(us.date.d$date,outlier.date,end.date),mean(diff)],0)
@@ -22,6 +24,7 @@ dly.avg.d.half <- round(us.date.d[between(us.date.d$date,end.date-half.days,end.
 tot.d <- format(us.date.d[,max(deaths)], big.mark = ",")
 max.col <- us.date.d[diff==dly.max.d,date]
 below.cnt <- as.integer(count(us.date.d[date>outlier.date][diff<us.date.d[date==outlier.date,diff]]))
+below2.cnt <- as.integer(count(us.date.d[date>start.date][diff<us.date.d[date==start.date,diff]]))
 first.diff <- us.date.d[date==outlier.date,diff]
 start.two <- nrow(us.date.d)-14
 end.two <- nrow(us.date.d)
@@ -49,15 +52,16 @@ for (i in start.half:end.two) {
   list.a[i] <- us.date.d[(i-half.days):i,round(mean(diff),digits = 0)]
 }
 us.date.d[,halfdays:=list.a[,mavg]]
-# the PLOT
+### THE PLOT :: US Daily Deaths :: AGREGGATE :: DAILY CHANGE :: ANALYSIS/DETAILS  ####
 dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
   geom_col(fill = "darkred") + scale_x_date(limits = c(start.date, end.date)) +
   labs(title = "Daily Deaths Covid-19 in US by Date", 
-       subtitle = "Focus on 29 February to current",
+       subtitle = paste0("Focus on 29 February to current (",max.date,")"),
        y = "Cumulative Deaths",
        x = "2020",
        #tag = "tag",
-       caption = paste("data from John Hopkins, downloaded from data.world", 
+       caption = paste("data from John Hopkins, downloaded from data.world",
+                       paste0("data last updated: ", day(when), " ", lubridate::month(when, label = TRUE), " ", year(when)),
                        "visualization by John Bennett", 
                        sep = "\n")) + 
   geom_hline(aes(yintercept = dly.avg.d.or), colour = 'blue', size = 1) +
@@ -74,6 +78,8 @@ dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
             color = 'blue', size = 4) +
   geom_text(x = start.date + 5, y = dly.avg.d + 75, label = paste("Uncorrected Average = ", dly.avg.d),
             color = 'grey2', size = 3) +
+  geom_text(x = start.date + 6, y = dly.avg.d - 75, label = paste("Days below= ", below2.cnt),
+            color = 'grey2', size = 3) + 
   geom_text(x = max.col, y = dly.max.d + 75, label = paste("Max Daily = ", dly.max.d),
             color = 'blue', size = 3) +
   geom_text(x = outlier.date - 3.25, y = us.date.d[date==outlier.date,diff] + 75, label = paste("First Date for Average = ", us.date.d[date==outlier.date,diff]),
@@ -85,11 +91,41 @@ dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
   geom_segment(x = Sys.Date()-half.days, y = dly.avg.d.half, xend = end.date, yend = dly.avg.d.half,
                color = 'goldenrod', size = 1) + 
   geom_label(label = paste0("7 Day Moving Average"), x = ma.date, y = hgt.ma, 
-    color = "greenyellow", fill="#333333", size = 4) + 
+    color = "greenyellow", fill="#333333", size = 5) + 
   geom_label(label = paste0("Half of the Included Days Moving Average"), x = end.date - 4, y = dly.avg.d.or + 300,
     color = "goldenrod", fill="#444444", size = 3) + 
   geom_label(label = paste0("14 Day Moving Average"), x = end.date, y = dly.avg.d.or + 100,
     color = "orangered", fill="#444444", size = 3)
+
+
+
+###  US BY WEEKDAY -- BAR/FACETS  ####
+###  Deaths - DAILY CHANGE by WEEKDAY  ####
+# calculate means
+means <- us.weekday.d
+means <- means[,mean.tot := mean(diff), by=.(weekday)]
+means <- means[week >= 14, mean.or := mean(diff), by=.(weekday)]
+
+  
+ggplot(data = us.weekday.d, aes(x = week, y = diff)) +
+  geom_col(fill = "darkred") + 
+  coord_flip() + 
+  facet_grid(rows = vars(weekday)) + 
+  geom_hline(aes(yintercept = mean.tot), means, colour = "grey2") + 
+  geom_hline(aes(yintercept = mean.or), means, colour = "blue") +  
+  labs(title = "Daily Deaths Covid-19 in US by Date", 
+       subtitle = paste(paste0(start.date, " to current (",max.date,")"),
+                        "Overall Average (black line)",
+                        "Average without Outliers (blue line)",
+                        sep = "\n"),
+       y = "Cumulative Deaths",
+       x = "2020",
+       #tag = "tag",
+       caption = paste("data from John Hopkins, downloaded from data.world",
+                       paste0("data last updated: ", day(when), " ", lubridate::month(when, label = TRUE), " ", year(when)),
+                       "visualization by John Bennett", 
+                       sep = "\n"))
+
 
 
               

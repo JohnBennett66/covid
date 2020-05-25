@@ -5,6 +5,8 @@ df <- read_csv("https://query.data.world/s/7f4asihgscqblwxjas2lociayh7odt", col_
 setDT(df)
 # adjust structure
 df[,Date:=mdy(Date)]
+# add record id
+df[,rec_num := seq(1:nrow(df))]
 
 
 

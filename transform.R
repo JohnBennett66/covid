@@ -41,20 +41,14 @@ i2 <- iso2
 
 ### TRANSFORM  ####
 #simplify colnames
-colnames(df) <- c("type", "tested", "cases", "diff", "date", "key", "country", "state", "city", "iso2", "iso3", "fips", "lat", "long", "pop", "hospital", "source", "runtime")
+colnames(df) <- c("type", "tested", "cases", "diff", "date", "key", "country", "state", "city", "iso2", "iso3", "fips", "lat", "long", "pop", "hospital", "source", "runtime", "rec_num")
 
 
 # fix "Cruise Ship"
 df[country=="Cruise Ship",iso2:="CS"]
 
-# t <- df[iso2==NA]   ### CONTINENT CODE --- JOIN NOT WORKING -- IGNORE, NOT MANDATORY
-# nrow(t)
-# 
-# #JOIN columns :: continent code, continent name
-# #clean
-# iso2[,2:4:=NULL]
-# 
-# df[iso2, on=.(iso2=iso2)]
+### CONTINENT CODE --- JOIN 
+df <- df[iso2,on=.(country=Country_Region,state=Province_State,iso2=iso2)]
 
 
 ### SPLIT DATA - CONFIRMED/DEATHS ####
@@ -92,6 +86,11 @@ setorder(us.date.d,date)
 
 us.date.d[is.na(tested),tested:=0]
 us.date.d[is.na(hospital),hospital:=0]
+# by weekday
+us.weekday.d <- us.date.d
+us.weekday.d$weekday <- lubridate::wday(as.POSIXlt(lubridate::as_date(us.weekday.d$date)),label=TRUE,abbr=FALSE)
+us.weekday.d$week <- lubridate::week(as.POSIXlt(lubridate::as_date(us.weekday.d$date)))
+
 
 # AGGREGATE BY DATE BY STATE
 state.date.c <- cases.us[,.(cases=sum(cases),tested=sum(tested),hospital=sum(hospital),pop=max(pop)),by = c("date","state")]

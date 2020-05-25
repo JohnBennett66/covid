@@ -1,10 +1,20 @@
 ### OUTPUT FILES FROM VISUALIZATIONS  ####
 
 ### SETUP LOCATION FOR VISUALS
-wd <- getwd()
-setwd(paste0(wd,"/visual_artifacts"))
-getwd()
+if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID", 
+        setwd("C:/Users/Newtboy/Documents/R4FUN/COVID/visual_artifacts"), 
+        print("wrong directory"), 
+        missing = NULL)
 
+### REMOVE EXITING FILES FROM VISUALS DIRECTORY -- ARCHIVE EXISTING FILES 
+currentdir <- getwd()
+files <- list.files(path = currentdir, full.names = TRUE)
+for (i in 2:length(files)) {
+    file.copy(files[i], files[1], overwrite = TRUE)
+  }
+for (i in 2:length(files)) {
+  file.remove(files[i])
+}
 
 ### PRINT VISUALS
 dly.d.us.chrt  # to screen
@@ -18,12 +28,17 @@ dev.off()
 
 
 ### RESET WORKING DIRECTORY
-setwd(wd)
+if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID", 
+        print("wrong directory"), 
+        setwd("C:/Users/Newtboy/Documents/R4FUN/COVID"), 
+        missing = NULL)
+
+
 getwd()
 
-
-
-
+et <- Sys.time()
+tdiff <- et-st
+print(tdiff)
 
 
 
