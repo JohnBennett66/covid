@@ -1,4 +1,4 @@
-
+###  VARIOUS VISUALIZATIONS AND ACCOMPANYING DATA BITS  ####
 
 
 ###  US BY DATE -- COLUMNS  ####
@@ -129,6 +129,104 @@ ggplot(data = us.weekday.d, aes(x = week, y = diff)) +
 
 
               
+###  US BY STATE BY DATE -- COLUMNS  ####
+
+###  Deaths - DAILY CHANGE BY STATE  ####
+# variables for limits, placements, etc
+when <- df[,date(mdy_hms(max(runtime, na.rm = TRUE)))]
+start.date <- ymd(20200229)
+end.date <- Sys.Date()
+place.one <- start.date + 6
+hgt <- state.date.d[,max(diff) + 100]
+hgt.ma <- state.date.d[,max(diff) + 100]
+ma.date <- state.date.d[diff==max(diff),date]
+outlier.date <- ymd(20200331)
+max.date <- state.date.d[,max(date)]
+# calculations for labelling
+# states by tier -- quartile, total deaths
+tot.d.st <- state.date.d[,sum(diff), by = state]
+colnames(tot.d.st) <- c("state","agg_deaths")
+tot.d.st[,quartile := as.integer(cut(tot.d.st$agg_deaths, quantile(tot.d.st$agg_deaths, probs =c(0.0,0.18,0.59,0.72,0.85,0.97,1)),include.lowest = TRUE))]
+setorder(tot.d.st,quartile,agg_deaths)
+state.date.d <- state.date.d[tot.d.st,on=.(state=state)]
+state.date.d[,quartile:=as.factor(quartile)]
+setorder(state.date.d,-quartile)
+# moving averages
+list.s <- data.table(state.date.d[,unique(state)])
+for (j in 1:length(unique(state.date.d[,state]))) {
+  sdd.s <- state.date.d[state == list.s[j]]
+  list.a <- data.table(mavg=seq(1:nrow(sdd.s)))
+  list.a[,mavg:=0]
+    for (i in 7:nrow(list.a)) {
+      list.a[i-6] <- sdd.s[(i-6):i,round(mean(diff),digits = 0)]
+    }
+  state.date.d[state==sdd.s[,unique(state)],basic:=list.a[,mavg]]
+}
+
+### THE PLOT :: US Daily Deaths :: AGREGGATE :: DAILY CHANGE :: ANALYSIS/DETAILS  ####
+
+q6 <- ggplot(data = state.date.d[quartile == 6], aes(x = date, y = diff)) +
+        geom_col(fill = "darkred")  + 
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1, colour = "blue") + 
+        labs(title = paste("Daily Deaths Covid-19 in US Daily by State", 
+                           "Top Tier States", sep = "\n"),
+              subtitle = paste("Out of 6 tiers",
+                                paste0("Focus on 29 February to current (",max.date,")"),
+                                sep = "\n"))
+
+
+q5 <- ggplot(data = state.date.d[quartile == 5], aes(x = date, y = diff)) +
+        geom_col(fill = "orangered3")  +
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1, colour = "blue") + 
+        labs(title = "Second Tier States")
+
+
+q4 <- ggplot(data = state.date.d[quartile == 4], aes(x = date, y = diff)) +
+        geom_col(fill = "orangered1")  +
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1, colour = "blue") + 
+        labs(title = "Third Tier States")
+
+
+q3 <- ggplot(data = state.date.d[quartile == 3], aes(x = date, y = diff)) +
+        geom_col(fill = "orange2")  +
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1, colour = "blue") + 
+        labs(title = "Fourth Tier States")
+
+
+q2 <- ggplot(data = state.date.d[quartile == 2], aes(x = date, y = diff)) +
+        geom_col(fill = "orange")  +
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1, colour = "blue") + 
+        labs(title = "Fifth Tier States")
+
+
+q1 <- ggplot(data = state.date.d[quartile == 1], aes(x = date, y = diff)) +
+        geom_col(fill = "darkgoldenrod1")  +
+        scale_x_date(limits = c(start.date, end.date)) + 
+        facet_wrap(vars(state)) + 
+        geom_line(aes(x = date, y = basic), size = 1) + 
+        labs(title = "Bottom Tier States",
+             caption = paste("data from John Hopkins, downloaded from data.world",
+                              paste0("data last updated: ", day(when), " ", 
+                                     lubridate::month(when, label = TRUE), " ", year(when)), 
+                              "visualization by John Bennett", 
+                              sep = "\n"))
+
+
+grid.arrange(q6,q5,q4,q3,q2,q1)
+
+
+
+### >>>>> GRID EXTRA LIBRARY AND GRID.ARRANGE <<<<<<<<<<<<
   
   
 # Confirmed Cases
@@ -137,7 +235,7 @@ ggplot(data = us.date.c) +
 
 
 # Deaths - ALL
-ggplot(data = us.date.d, aes(x = date, y = deaths)) + 
+ggplot(data = state.date.d, aes(x = date, y = deaths)) + 
   geom_col() + ylim(0, 100000) + scale_x_date(limits = c(ymd(20200229),NA)) +
   scale_fill_date("blue") +
   labs(title = "Daily Cumulative Covid-19 Deaths in US", 

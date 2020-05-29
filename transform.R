@@ -93,11 +93,10 @@ us.weekday.d$week <- lubridate::week(as.POSIXlt(lubridate::as_date(us.weekday.d$
 
 
 # AGGREGATE BY DATE BY STATE
-state.date.c <- cases.us[,.(cases=sum(cases),tested=sum(tested),hospital=sum(hospital),pop=max(pop)),by = c("date","state")]
-state.date.d <- deaths.us[,.(cases=sum(cases),tested=sum(tested),hospital=sum(hospital),pop=max(pop)),by = c("date","state")]
-setnames(state.date.d,"cases","deaths")
-setorder(state.date.c,date, state)
-setorder(state.date.d,date, state)
+state.date.c <- cases.us[,.(cases=sum(cases),diff=sum(diff),tested=sum(tested),hospital=sum(hospital),pop=max(pop)),by = c("date","state")]
+state.date.d <- deaths.us[,.(deaths=sum(cases),diff=sum(diff),tested=sum(tested),hospital=sum(hospital),pop=max(pop)),by = c("date","state")]
+setorder(state.date.c,state, date)
+setorder(state.date.d,state, date)
 
 
 
