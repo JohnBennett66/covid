@@ -31,6 +31,12 @@ pdf("daily_deaths_singlestate_chart.pdf")  # to PDF file
 print(dly.d.single.state.chrt)
 dev.off()
 
+# Single State daily chart
+dly.trend.up.states.chrt  # to screen
+ggsave(file = "daily_trend_up_chart.png", dpi = 600, width = 20, height = 8, units = "in")  # to image file
+pdf("daily_trend_up_chart.pdf")  # to PDF file
+print(dly.d.single.state.chrt)
+dev.off()
 
 ### RESET WORKING DIRECTORY
 if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID", 

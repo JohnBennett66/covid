@@ -224,8 +224,41 @@ q1 <- ggplot(data = state.date.d[quartile == 1], aes(x = date, y = diff)) +
 
 grid.arrange(q6,q5,q4,q3,q2,q1)
 
-### >>>>> GRID EXTRA LIBRARY AND GRID.ARRANGE <<<<<<<<<<<<
+###  STATES TRENDING UP :: FACETS :: COLUMNS  ####
+###  Deaths - DAILY CHANGE  ####
+state.lst <- c("Maryland", "Ohio", "Virginia", "Florida", "Georgia", "Indiana", "North Carolina", 
+               "Maine", "Oklahoma", "South Dakota", "Illinois", "Rhode Island", "California", 
+               "Wisconsin", "Arizona", "Texas", "Pennsylvania", "Minnesota")
+trend.up <- state.date.c[state %in% state.lst]
+# moving averages
+# basic
+state.lst <- trend.up[,unique(state)]
+list.a <- data.table(mavg=seq(1:nrow(trend.up[state == state.lst[1]])))
+list.a[1:5,mavg:=0]
+for (j in 1:length(trend.up[,unique(state)])) {
+  for (i in 5:end.two) {
+    list.a[i] <- trend.up[state == state.lst[j]][(i-5):i,round(mean(diff),digits = 0)]
+  } 
+  trend.up[state == state.lst[j],basic:=list.a[,mavg]]
+}
 
+### THE PLOT ####
+dly.trend.up.states.chrt <- ggplot(data = trend.up, aes(x = date, y = diff)) + 
+  geom_col(fill = "blue") + 
+  facet_wrap(vars(state), scales = "free") + 
+  geom_line(data = trend.up, aes(x = date, y = basic))
+  labs(title = "Daily Cases Covid-19 for States Trending Up* by Date", 
+       subtitle = paste(paste0("Focus on 29 February to current (",max.date,")"),
+                        paste0("*are, or might be, or were recently trending upward, at least for recents week(s)"),
+                        paste0("PLEASE NOTE: The left axis scale varies from chart to chart, so overall cases are quite different between these states"),
+                        sep = "\n"),
+       y = "Cumulative Cases",
+       x = "2020",
+       #tag = "tag",
+       caption = paste("data from John Hopkins, downloaded from data.world",
+                       paste0("data last updated: ", day(when), " ", lubridate::month(when, label = TRUE), " ", year(when)),
+                       "visualization by John Bennett", 
+                       sep = "\n"))
 
 
 ###  SINGLE STATE :: COMPLEX CHART -- COLUMNS  ####
@@ -338,7 +371,7 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
   
 # Confirmed Cases
 ggplot(data = us.date.c) + 
-  geom_col(aes(x = date, y = cases))
+  geom_col(aes(x = date, y = diff))
 
 
 # Deaths - ALL
