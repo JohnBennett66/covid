@@ -15,4 +15,4 @@ if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID",
         missing = NULL)
 
 
-st <- Sys.time()
+s.tm <- Sys.time()

@@ -48,7 +48,7 @@ colnames(df) <- c("type", "tested", "cases", "diff", "date", "key", "country", "
 df[country=="Cruise Ship",iso2:="CS"]
 
 ### CONTINENT CODE --- JOIN 
-df <- df[iso2,on=.(country=Country_Region,state=Province_State,iso2=iso2)]
+df <- df[iso2,on=.(country=country,state=state,iso2=iso2)]
 
 
 ### SPLIT DATA - CONFIRMED/DEATHS ####

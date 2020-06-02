@@ -17,14 +17,19 @@ for (i in 2:length(files)) {
 }
 
 ### PRINT VISUALS
+# US daily chart
 dly.d.us.chrt  # to screen
-
 ggsave(file = "daily_deaths_us_chart.png", dpi = 600, width = 20, height = 8, units = "in")  # to image file
-
 pdf("daily_deaths_us_chart.pdf")  # to PDF file
 print(dly.d.us.chrt)
 dev.off()
 
+# Single State daily chart
+dly.d.single.state.chrt  # to screen
+ggsave(file = "daily_deaths_singlestate_chart.png", dpi = 600, width = 20, height = 8, units = "in")  # to image file
+pdf("daily_deaths_singlestate_chart.pdf")  # to PDF file
+print(dly.d.single.state.chrt)
+dev.off()
 
 
 ### RESET WORKING DIRECTORY
@@ -36,8 +41,8 @@ if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID",
 
 getwd()
 
-et <- Sys.time()
-tdiff <- et-st
+e.tm <- Sys.time()
+tdiff <- e.tm-s.tm
 print(tdiff)
 
 

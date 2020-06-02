@@ -1,5 +1,15 @@
 
 
+wd <- getwd()
+iso2 <- fread(file = paste0(wd,"/data/country_continent.csv"))
+countries <- df[,c(10,7:8)] %>% unique()
+colnames(iso2) <- c("iso2","continent")
+iso2 <- iso2[countries,on=.(iso2=iso2), nomatch = NA]
+colnames(iso2) <- c("iso2","continent","country","state")
+fwrite(iso2, file = "iso2.csv")
+
+
+
 
 
 t <- ggplot(data=state.date.d[quartile %in% c(4,5,6)], aes(x = date, y = diff)) + 
