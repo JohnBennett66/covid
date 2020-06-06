@@ -70,7 +70,9 @@ dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
   geom_line(data = us.date.d[start.two:end.two], aes(x = date, y = twoweek), colour = 'orangered', size = 1) +
   geom_line(data = us.date.d[start.half:end.two], aes(x = date, y = halfdays), colour = 'goldenrod', size = 1) +
   geom_line(data = us.date.d[7:end.two], aes(x = date, y = basic), colour = 'greenyellow', size = 1) +
-  geom_label(label = paste0("Total Deaths = ",tot.d), x = place.one, y = hgt - 150,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
+  geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
+                           paste0("US Overall"), sep = "\n")
+             x = place.one, y = hgt - 150,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
     color = "black", fill="#ffeeee", size = 4) +
   geom_text(x = start.date + 5, y = dly.avg.d.or - 100, label = "Before 31 March are outliers", 
             color = 'blue', size = 3) +
@@ -336,8 +338,9 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
   geom_line(data = single.state[start.two:end.two], aes(x = date, y = twoweek), colour = 'orangered', size = 2) +
   geom_line(data = single.state[start.half:end.two], aes(x = date, y = halfdays), colour = 'goldenrod', size = 2) +
   geom_line(data = single.state[7:end.two], aes(x = date, y = basic), colour = 'greenyellow', size = 2) +
-  geom_label(label = paste(paste0("Total Deaths = ",tot.d), paste0(st), sep = "\n"),
-              x = place.one, y = hgt - 50,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
+  geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
+                           paste0(st), sep = "\n"),
+              x = place.one, y = hgt - sp.one,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
               color = "black", fill="#ffeeee", size = 4) +
   geom_text(x = start.date + 5, y = dly.avg.d.or - sp.one, label = "Before 31 March are outliers", 
             color = 'blue', size = 3) +
