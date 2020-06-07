@@ -26,7 +26,8 @@ dev.off()
 
 # Single State daily chart
 dly.d.single.state.chrt  # to screen
-ggsave(file = "daily_deaths_singlestate_chart.png", dpi = 600, width = 20, height = 8, units = "in")  # to image file
+filename <- paste0("daily_deaths_",st,"_chart.png")
+ggsave(file = filename, dpi = 600, width = 20, height = 8, units = "in")  # to image file
 pdf("daily_deaths_singlestate_chart.pdf")  # to PDF file
 print(dly.d.single.state.chrt)
 dev.off()
