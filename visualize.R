@@ -99,6 +99,55 @@ dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
   geom_label(label = paste0("14 Day Moving Average"), x = end.date, y = dly.avg.d.or + 100,
     color = "orangered", fill="#444444", size = 3)
 
+### THE SECOND PLOT :: US Daily Cases & Deaths :: AGREGGATE :: DAILY CHANGE :: ANALYSIS/DETAILS  ####
+dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
+  geom_col(fill = "darkred") + geo_col(data = us.date.c, aes(x = date, y = diff), fill = "dodgerblue")
+  scale_x_date(limits = c(start.date, end.date)) +
+  labs(title = "Daily Deaths Covid-19 in US by Date", 
+       subtitle = paste0("Focus on 29 February to current (",max.date,")"),
+       y = "Cumulative Deaths",
+       x = "2020",
+       #tag = "tag",
+       caption = paste("data from John Hopkins, downloaded from data.world",
+                       paste0("data last updated: ", day(when), " ", lubridate::month(when, label = TRUE), " ", year(when)),
+                       "visualization by John Bennett", 
+                       sep = "\n")) + 
+  geom_hline(aes(yintercept = dly.avg.d.or), colour = 'blue', size = 1) +
+  geom_hline(aes(yintercept = dly.avg.d), colour = 'grey2', size = 1) +
+  geom_hline(aes(yintercept = first.diff), colour = 'darkslateblue', size = 1) + 
+  geom_line(data = us.date.d[start.two:end.two], aes(x = date, y = twoweek), colour = 'orangered', size = 1) +
+  geom_line(data = us.date.d[start.half:end.two], aes(x = date, y = halfdays), colour = 'goldenrod', size = 1) +
+  geom_line(data = us.date.d[7:end.two], aes(x = date, y = basic), colour = 'greenyellow', size = 1) +
+  geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
+                           paste0("US Overall"), sep = "\n")
+             x = place.one, y = hgt - 150,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
+             color = "black", fill="#ffeeee", size = 4) +
+  geom_text(x = start.date + 5, y = dly.avg.d.or - 100, label = "Before 31 March are outliers", 
+            color = 'blue', size = 3) +
+  geom_text(x = start.date + 5, y = dly.avg.d.or + 100, label = paste0("Daily Average = ", dly.avg.d.or), 
+            color = 'blue', size = 4) +
+  geom_text(x = start.date + 5, y = dly.avg.d + 75, label = paste("Uncorrected Average = ", dly.avg.d),
+            color = 'grey2', size = 3) +
+  geom_text(x = start.date + 6, y = dly.avg.d - 75, label = paste("Days below= ", below2.cnt),
+            color = 'grey2', size = 3) + 
+  geom_text(x = max.col, y = dly.max.d + 75, label = paste("Max Daily = ", dly.max.d),
+            color = 'blue', size = 3) +
+  geom_text(x = outlier.date - 3.25, y = us.date.d[date==outlier.date,diff] + 75, label = paste("First Date for Average = ", us.date.d[date==outlier.date,diff]),
+            color = 'darkslateblue', size = 3) +
+  geom_text(x = start.date + 6, y = first.diff + 75, label = paste("Days below corrected average = ", below.cnt),
+            color = 'darkslateblue', size = 3) + 
+  geom_segment(x = Sys.Date()-14, y = dly.avg.d.rcnt, xend = end.date, yend = dly.avg.d.rcnt,
+               color = 'orangered', size = 1) + 
+  geom_segment(x = Sys.Date()-half.days, y = dly.avg.d.half, xend = end.date, yend = dly.avg.d.half,
+               color = 'goldenrod', size = 1) + 
+  geom_label(label = paste0("7 Day Moving Average"), x = ma.date, y = hgt.ma, 
+             color = "greenyellow", fill="#333333", size = 5) + 
+  geom_label(label = paste0("Half of the Included Days Moving Average"), x = end.date - 4, y = dly.avg.d.or + 300,
+             color = "goldenrod", fill="#444444", size = 3) + 
+  geom_label(label = paste0("14 Day Moving Average"), x = end.date, y = dly.avg.d.or + 100,
+             color = "orangered", fill="#444444", size = 3)
+
+
 
 
 ###  US BY WEEKDAY -- BAR/FACETS  ####

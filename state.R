@@ -4,7 +4,6 @@
 ### Pick State
 st <- readline(prompt = "Which State?")
 
-
 ### SETUP LOCATION FOR VISUALS
 if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID", 
         setwd("C:/Users/Newtboy/Documents/R4FUN/COVID/visual_artifacts"), 
@@ -26,6 +25,10 @@ outlier.date <- ymd(20200331)
 max.date <- single.state[,max(date)]
 # spacing calcs
 sp.one <- round(hgt * 0.025)
+if_else(sp.one < 1, 
+        sp.one <- 1, 
+        message("all set"), 
+        missing = NULL)
 # calculations for labelling
 dly.avg.d <- round(single.state[,mean(diff)],0)
 dly.avg.d.or <- round(single.state[between(single.state$date,outlier.date,end.date),mean(diff)],0)
@@ -121,8 +124,9 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
 # Single State daily chart
 dly.d.single.state.chrt  # to screen
 filename <- paste0("daily_deaths_",st,"_chart.png")
+filename2 <- paste0("daily_deaths_",st,"_chart.pfd")
 ggsave(file = filename, dpi = 600, width = 20, height = 8, units = "in")  # to image file
-pdf("daily_deaths_singlestate_chart.pdf")  # to PDF file
+pdf(filename2)  # to PDF file
 print(dly.d.single.state.chrt)
 dev.off()
 
