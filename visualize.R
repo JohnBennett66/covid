@@ -101,7 +101,7 @@ dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
 
 ### THE SECOND PLOT :: US Daily Cases & Deaths :: AGREGGATE :: DAILY CHANGE :: ANALYSIS/DETAILS  ####
 dly.d.us.chrt <- ggplot(data = us.date.d, aes(x = date, y = diff)) +
-  geom_col(fill = "darkred") + geo_col(data = us.date.c, aes(x = date, y = diff), fill = "dodgerblue")
+  geom_col(fill = "darkred") + geom_col(data = us.date.c, aes(x = date, y = diff), fill = "dodgerblue") +
   scale_x_date(limits = c(start.date, end.date)) +
   labs(title = "Daily Deaths Covid-19 in US by Date", 
        subtitle = paste0("Focus on 29 February to current (",max.date,")"),

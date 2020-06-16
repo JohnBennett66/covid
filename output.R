@@ -33,6 +33,14 @@ print(dly.d.single.state.chrt)
 dev.off()
 
 # Single State daily chart
+grid.arrange(q6,q5,q4,q3,q2,q1)  # to screen
+filename <- paste0("daily_deaths_allstates_chart.png")
+ggsave(file = filename, dpi = 600, width = 20, height = 8, units = "in")  # to image file
+pdf("daily_deaths_allstates_chart.pdf")  # to PDF file
+print(dly.d.single.state.chrt)
+dev.off()
+
+# Single State daily chart
 dly.trend.up.states.chrt  # to screen
 ggsave(file = "daily_trend_up_chart.png", dpi = 600, width = 20, height = 8, units = "in")  # to image file
 pdf("daily_trend_up_chart.pdf")  # to PDF file

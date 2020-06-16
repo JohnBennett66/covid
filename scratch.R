@@ -42,6 +42,14 @@ trendline formula :
 
 
 
+ggplot(data = df[country == "US"], aes(x = date, y = diff), fill = type) +
+  geom_col() + facet_grid(cols = vars(type))
+
+
+ggplot(data = df[country == "US"], aes(x = date, y = diff), fill = type) +
+  geom_col() + scale_y_log10()
+
+
 
 
 
