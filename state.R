@@ -85,8 +85,6 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
   geom_hline(aes(yintercept = dly.avg.d.or), colour = 'blue', size = 1) +
   geom_hline(aes(yintercept = dly.avg.d), colour = 'grey2', size = 1) +
   geom_hline(aes(yintercept = first.diff), colour = 'darkslateblue', size = 1) + 
-  geom_line(data = single.state[start.two:end.two], aes(x = date, y = twoweek), colour = 'orangered', size = 2) +
-  geom_line(data = single.state[start.half:end.two], aes(x = date, y = halfdays), colour = 'goldenrod', size = 2) +
   geom_line(data = single.state[7:end.two], aes(x = date, y = basic), colour = 'greenyellow', size = 2) +
   geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
                            paste0(st), sep = "\n"),
@@ -106,16 +104,8 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
             color = 'darkslateblue', size = 3) +
   geom_text(x = start.date + 6, y = first.diff + sp.one, label = paste("Days below corrected average = ", below.cnt),
             color = 'darkslateblue', size = 3) + 
-  geom_segment(x = Sys.Date()-14, y = dly.avg.d.rcnt, xend = end.date, yend = dly.avg.d.rcnt,
-               color = 'orangered', size = 1) + 
-  geom_segment(x = Sys.Date()-half.days, y = dly.avg.d.half, xend = end.date, yend = dly.avg.d.half,
-               color = 'goldenrod', size = 1) + 
   geom_label(label = paste0("7 Day Moving Average"), x = end.date - 15, y = dly.avg.d.or + sp.one * 7, 
-             color = "greenyellow", fill="#333333", size = 5) + 
-  geom_label(label = paste0("Half of the Included Days Moving Average"), x = end.date - 5, y = dly.avg.d.or + sp.one * 3,
-             color = "goldenrod", fill="#444444", size = 3) + 
-  geom_label(label = paste0("14 Day Moving Average"), x = end.date, y = dly.avg.d.or + sp.one,
-             color = "orangered", fill="#444444", size = 3)
+             color = "greenyellow", fill="#333333", size = 5) 
 
 
 
