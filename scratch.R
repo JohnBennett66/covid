@@ -1,5 +1,52 @@
 
 
+
+
+
+
+ggplot(data = us.date, aes(x = date, y = new_deaths)) +
+  geom_col(fill = "darkred") + scale_x_date(limits = c(start.date, end.date)) +
+  labs(title = "Daily Deaths Covid-19 in US by Date", 
+       subtitle = paste0("Focus on 29 February to current (",max.date,")"),
+       y = "Cumulative Deaths",
+       x = "2020",
+       #tag = "tag",
+       caption = paste("data from John Hopkins, downloaded from data.world",
+                       paste0("data last updated: ", day(when), " ", lubridate::month(when, label = TRUE), " ", year(when)),
+                       "visualization by John Bennett", 
+                       sep = "\n"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 wd <- getwd()
 iso2 <- fread(file = paste0(wd,"/data/country_continent.csv"))
 countries <- df[,c(10,7:8)] %>% unique()
