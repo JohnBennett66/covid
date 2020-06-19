@@ -367,7 +367,7 @@ for (j in 1:length(trend.up[,unique(state)])) {
 dly.trend.up.states.chrt <- ggplot(data = trend.up, aes(x = date, y = new_deaths)) + 
   geom_col(fill = "blue") + 
   facet_wrap(vars(state), scales = "free") + 
-  geom_line(data = trend.up, aes(x = date, y = basic))
+  geom_line(data = trend.up, aes(x = date, y = basic)) + 
   labs(title = "Daily Cases Covid-19 for States Trending Up* by Date", 
        subtitle = paste(paste0("Focus on 29 February to current (",max.date,")"),
                         paste0("*are, or might be, or were recently trending upward, at least for recents week(s)"),

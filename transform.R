@@ -17,6 +17,9 @@ us.state[is.na(new_cases_1000), new_cases_1000 := 0]
 us.state[is.na(new_cases_roll_7), new_cases_roll_7 := 0]
 us.state[is.na(new_cases), new_cases := 0]
 
+us.state[,cum := max(cum_deaths), by = state]
+
+setorder(us.state, -cum)
 
 ###  US ALL BY DATE  ####
 us.date <- df.jh[

@@ -32,16 +32,10 @@ ggplot(data = us.date, aes(x = date, y = new_deaths)) +
 
 
 
+us.order <- us.state[,max(cum_deaths), by = state]
+colnames(us.order) <- c("state","max")
 
-
-
-
-
-
-
-
-
-
+us.state <- us.state[us.order, on = .(state=state)]
 
 
 

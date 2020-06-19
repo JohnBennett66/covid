@@ -12,35 +12,31 @@ if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID",
 
 
 # SINGLE STATE
-single.state <- state.date.d[state == st]
+single.state <- us.state[state == st]
 # variables for limits, placements, etc
-when <- df[,date(mdy_hms(max(runtime, na.rm = TRUE)))]
 start.date <- ymd(20200229)
 end.date <- Sys.Date()
 place.one <- start.date + 6
-hgt <- single.state[,max(diff)]
-hgt.ma <- single.state[,max(diff)]
-ma.date <- single.state[diff==max(diff),date]
-outlier.date <- ymd(20200331)
+hgt <- single.state[,max(new_deaths)]
+hgt.ma <- single.state[date == end.date - 5,new_deaths]
+ma.date <- end.date - 5
+outlier.date <- ymd(20200325)
 max.date <- single.state[,max(date)]
+adj <- as.integer(single.state[,max(new_deaths)] / 10)
 # spacing calcs
 sp.one <- round(hgt * 0.025)
-if_else(sp.one < 1, 
-        sp.one <- 1, 
-        message("all set"), 
-        missing = NULL)
 # calculations for labelling
-dly.avg.d <- round(single.state[,mean(diff)],0)
-dly.avg.d.or <- round(single.state[between(single.state$date,outlier.date,end.date),mean(diff)],0)
-dly.max.d <- round(single.state[,max(diff)],0)
-dly.avg.d.rcnt <- round(single.state[between(single.state$date,end.date-14,end.date),mean(diff)],0)
+dly.avg.d <- round(single.state[,mean(new_deaths)],0)
+dly.avg.d.or <- round(single.state[between(single.state$date,outlier.date,end.date),mean(new_deaths)],0)
+dly.max.d <- round(single.state[,max(new_deaths)],0)
+dly.avg.d.rcnt <- round(single.state[between(single.state$date,end.date-14,end.date),mean(new_deaths)],0)
 half.days <- round(as.integer(count(single.state[between(single.state$date,outlier.date,end.date)]))/2,0)
-dly.avg.d.half <- round(single.state[between(single.state$date,end.date-half.days,end.date),mean(diff)],0)
-tot.d <- format(single.state[,max(deaths)], big.mark = ",")
-max.col <- single.state[diff==dly.max.d,date]
-below.cnt <- as.integer(count(single.state[date>outlier.date][diff<single.state[date==outlier.date,diff]]))
-below2.cnt <- as.integer(count(single.state[date>start.date][diff<single.state[date==start.date,diff]]))
-first.diff <- single.state[date==outlier.date,diff]
+dly.avg.d.half <- round(single.state[between(single.state$date,end.date-half.days,end.date),mean(new_deaths)],0)
+tot.d <- format(single.state[,max(cum_deaths)], big.mark = ",")
+max.col <- single.state[new_deaths==dly.max.d,date]
+below.cnt <- as.integer(count(single.state[date>outlier.date][new_deaths<single.state[date==outlier.date,new_deaths]]))
+below2.cnt <- as.integer(count(single.state[date>start.date][new_deaths<single.state[date==start.date,new_deaths]]))
+first.new_deaths <- single.state[date==outlier.date,new_deaths]
 start.two <- nrow(single.state)-14
 end.two <- nrow(single.state)
 start.half <- nrow(single.state)-half.days
@@ -48,30 +44,22 @@ end.half <- end.two #same end point
 # moving averages
 # basic
 list.a <- data.table(mavg=seq(1:nrow(single.state)))
-list.a[1:7,mavg:=0]
-for (i in 7:end.two) {
-  list.a[i] <- single.state[(i-6):i,round(mean(diff),digits = 0)]
+list.a[1:5,mavg:=0]
+for (i in 5:end.date) {
+  list.a[i] <- single.state[(i-5):i,round(mean(new_deaths),digits = 0)]
 }
 single.state[,basic:=list.a[,mavg]]
 # two weeks
 list.a <- data.table(mavg=seq(1:nrow(single.state)))
-list.a[1:(start.two - 1),mavg:=0]
-for (i in start.two:end.two) {
-  list.a[i] <- single.state[(i-13):i,round(mean(diff),digits = 0)]
+list.a[1:14,mavg:=0]
+for (i in 14:nrow(single.state)) {
+  list.a[i] <- single.state[(i-13):i,round(mean(new_deaths),digits = 0)]
 }
 single.state[,twoweek:=list.a[,mavg]]
-# half of no outliers
-list.a <- data.table(mavg=seq(1:nrow(single.state)))
-list.a[1:(start.half - 1),mavg:=0]
-for (i in start.half:end.two) {
-  list.a[i] <- single.state[(i-half.days):i,round(mean(diff),digits = 0)]
-}
-single.state[,halfdays:=list.a[,mavg]]
-
 
 
 ### THE PLOT :: SINGLE STATE :: Daily Deaths :: AGREGGATE :: DAILY CHANGE :: ANALYSIS/DETAILS  ####
-dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) +
+dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = new_deaths)) +
   geom_col(fill = "darkred") + scale_x_date(limits = c(start.date, end.date)) +
   labs(title = "Daily Deaths Covid-19 in US by Date", 
        subtitle = paste0("Focus on 29 February to current (",max.date,")"),
@@ -84,30 +72,26 @@ dly.d.single.state.chrt <- ggplot(data = single.state, aes(x = date, y = diff)) 
                        sep = "\n")) + 
   geom_hline(aes(yintercept = dly.avg.d.or), colour = 'blue', size = 1) +
   geom_hline(aes(yintercept = dly.avg.d), colour = 'grey2', size = 1) +
-  geom_hline(aes(yintercept = first.diff), colour = 'darkslateblue', size = 1) + 
-  geom_line(data = single.state[7:end.two], aes(x = date, y = basic), colour = 'greenyellow', size = 2) +
-  geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
-                           paste0(st), sep = "\n"),
-             x = place.one, y = hgt - sp.one,   #label.padding = unit(0.4, "lines"), label.size = 0.3,
-             color = "black", fill="#ffeeee", size = 4) +
-  geom_text(x = start.date + 5, y = dly.avg.d.or - sp.one, label = "Before 31 March are outliers", 
-            color = 'blue', size = 3) +
-  geom_text(x = start.date + 5, y = dly.avg.d.or + 1, label = paste0("Daily Average = ", dly.avg.d.or), 
+  geom_text(x = start.date + 5, y = dly.avg.d.or + adj, label = paste0("Daily Average = ", dly.avg.d.or), 
             color = 'blue', size = 4) +
-  geom_text(x = start.date + 5, y = dly.avg.d + sp.one, label = paste("Uncorrected Average = ", dly.avg.d),
+  geom_text(x = start.date + 5, y = dly.avg.d + adj, label = paste("Uncorrected Average = ", dly.avg.d),
             color = 'grey2', size = 3) +
-  geom_text(x = start.date + 6, y = dly.avg.d - sp.one, label = paste("Days below= ", below2.cnt),
-            color = 'grey2', size = 3) + 
-  geom_text(x = max.col, y = dly.max.d + sp.one, label = paste("Max Daily = ", dly.max.d),
-            color = 'blue', size = 3) +
-  geom_text(x = outlier.date - 4, y = single.state[date==outlier.date,diff] + sp.one, label = paste("First Date for Average = ", single.state[date==outlier.date,diff]),
-            color = 'darkslateblue', size = 3) +
-  geom_text(x = start.date + 6, y = first.diff + sp.one, label = paste("Days below corrected average = ", below.cnt),
-            color = 'darkslateblue', size = 3) + 
-  geom_label(label = paste0("7 Day Moving Average"), x = end.date - 15, y = dly.avg.d.or + sp.one * 7, 
-             color = "greenyellow", fill="#333333", size = 5) 
-
-
+  #geom_hline(aes(yintercept = first.new_deaths), colour = 'darkslateblue', size = 1) +
+  geom_text(x = start.date + 5, y = dly.avg.d.or - adj, label = "Before 31 March are outliers", 
+            color = 'blue', size = 3) + 
+  geom_line(data = single.state, aes(x = date, y = twoweek), colour = 'orangered', size = 1) +
+  geom_line(data = single.state, aes(x = date, y = basic), colour = 'blue', size = 1) +
+  geom_label(label = paste(paste0("Total Deaths = ",tot.d), 
+                           paste0(st), sep = "\n"), 
+             x = place.one, y = hgt,   
+             color = "black", fill="#ffeeee", size = 4) + 
+  geom_label(label = "First non-Outlier Day", 
+             x = outlier.date - 4, y = single.state[date == outlier.date, new_deaths],   
+             color = "black", fill="#ffeeee", size = 3) + 
+  geom_label(label = paste0("5 Day Moving Average"), x = place.one, y = hgt - adj, 
+             color = "blue", fill="#BBBBBB", size = 5) + 
+  geom_label(label = paste0("14 Day Moving Average"), x = place.one, y = hgt - (adj *2),
+             color = "orangered", fill="#333333", size = 4)
 
 
 
