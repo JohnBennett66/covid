@@ -343,7 +343,7 @@ q1 <- ggplot(data = state.date.d[quartile == 1], aes(x = date, y = new_deaths)) 
                               sep = "\n"))
 
 
-grid.arrange(q6,q5,q4,q3,q2,q1)
+grid_display <- grid.arrange(q6,q5,q4,q3,q2,q1)
 
 ###  STATES TRENDING UP :: FACETS :: COLUMNS  ####
 ###  Deaths - DAILY CHANGE  ####
