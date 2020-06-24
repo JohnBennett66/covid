@@ -49,13 +49,13 @@ us.date[,deaths_per_10mill := (cum_deaths/(pop/10000000))]
 
 ### TABLEAU DATASET FOR DETAILS ON US GEO DATA  ####
 # simplify columns
-colnames(df.tb) <- c("county", "fips", "positive_cases", "date", "state", 
-                     "continent", "source", "new_deaths", "iso3", "country", 
+colnames(df.tb) <- c("positive_cases", "county", "date", "state", 
+                     "continent", "source", "new_deaths", "fips", "iso3", "country", 
                      "iso2", "pos_new_cases", "deaths")
 
 us.geo <- df.tb[iso2 == "US"]
 
-
+geo.world <- df.tb[, max(deaths), by = country]
 
 
 

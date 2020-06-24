@@ -133,9 +133,13 @@ ggplot(crimes, aes(map_id = state)) +
   expand_limits(x = states_map$long, y = states_map$lat)
 
 ggplot(geo.test, aes(map_id = state)) + 
-  geom_map(aes(fill = count), map = states_map) + 
+  geom_map(aes(fill = state), map = states_map) + 
   expand_limits(x = states_map$long, y = states_map$lat)
 
+world_map <- map_data("world")
+ggplot(geo.world, aes(map_id = state)) +
+  geom_map(aes(fill = count), map = world_map) + 
+  expand_limits(x = world_map$long, y = world_map$lat)
 
 ggplot(crimes_long, aes(map_id = state)) + 
   geom_map(aes(fill = value), map = states_map) + 
@@ -143,11 +147,10 @@ ggplot(crimes_long, aes(map_id = state)) +
   facet_wrap( ~ variable)
 
 
-
-
-world_map <- map_data("world")
-ggplot(world_map) +
-  geom_map(aes(map_id = world_map), map = world_map, fill="lightgray", colour = "white")
+ggplot(us.geo, aes(map_id = county)) +
+  geom_map(aes(fill = deaths), map = county_map) + 
+  expand_limits(x = county_map$long, y = county_map$lat)
+  
 
 
 # Some EU Contries
