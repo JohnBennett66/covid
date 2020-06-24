@@ -25,10 +25,6 @@ setorder(us.state, -death_toll, date)
 us.state[,cases_per_capita := (cum_cases/pop) * 100]
 us.state[,deaths_per_capita := (cum_deaths/pop) * 100]
 
-
-
-
-
 ###  US ALL BY DATE  ####
 us.date <- df.jh[
                   ,.(pop = sum(pop),cum_cases = sum(cum_cases), cum_cases_1000 = sum(cum_cases_1000), 
@@ -41,14 +37,35 @@ us.date <- df.jh[
 
 us.date[,case_toll := max(cum_cases)]
 us.date[,death_toll := max(cum_deaths)]
-
 setorder(us.date, -death_toll, date)
 
 us.date[,cases_per_capita := (cum_cases/pop)]
 us.date[,deaths_per_capita := (cum_deaths/pop)]
-
 us.date[,cases_per_mill := (cum_cases/(pop/1000000))]
 us.date[,deaths_per_mill := (cum_deaths/(pop/1000000))]
-
 us.date[,cases_per_10mill := (cum_cases/(pop/10000000))]
 us.date[,deaths_per_10mill := (cum_deaths/(pop/10000000))]
+
+
+### TABLEAU DATASET FOR DETAILS ON US GEO DATA  ####
+# simplify columns
+colnames(df.tb) <- c("county", "fips", "positive_cases", "date", "state", 
+                     "continent", "source", "new_deaths", "iso3", "country", 
+                     "iso2", "pos_new_cases", "deaths")
+
+us.geo <- df.tb[iso2 == "US"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

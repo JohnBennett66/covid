@@ -121,3 +121,72 @@ grid.draw(g)
 
 
 
+vars <- lapply(names(crimes)[-1], function(j) { 
+  data.frame(state = crimes$state, variable = j, 
+             value = crimes[[j]]) }) 
+
+crimes_long <- do.call("rbind", vars)
+
+states_map <- map_data("state") 
+ggplot(crimes, aes(map_id = state)) + 
+  geom_map(aes(fill = Murder), map = states_map) + 
+  expand_limits(x = states_map$long, y = states_map$lat)
+
+ggplot(geo.test, aes(map_id = state)) + 
+  geom_map(aes(fill = count), map = states_map) + 
+  expand_limits(x = states_map$long, y = states_map$lat)
+
+
+ggplot(crimes_long, aes(map_id = state)) + 
+  geom_map(aes(fill = value), map = states_map) + 
+  expand_limits(x = states_map$long, y = states_map$lat) + 
+  facet_wrap( ~ variable)
+
+
+
+
+world_map <- map_data("world")
+ggplot(world_map) +
+  geom_map(aes(map_id = world_map), map = world_map, fill="lightgray", colour = "white")
+
+
+# Some EU Contries
+some.eu.countries <- c(
+  "Portugal", "Spain", "France", "Switzerland", "Germany",
+  "Austria", "Belgium", "UK", "Netherlands",
+  "Denmark", "Poland", "Italy", 
+  "Croatia", "Slovenia", "Hungary", "Slovakia",
+  "Czech republic"
+)
+# Retrievethe map data
+some.eu.maps <- map_data("world", region = some.eu.countries)
+
+# Compute the centroid as the mean longitude and lattitude
+# Used as label coordinate for country's names
+region.lab.data <- some.eu.maps %>%
+  group_by(region) %>%
+  summarise(long = mean(long), lat = mean(lat))
+
+
+ggplot(some.eu.maps, aes(x = long, y = lat)) +
+  geom_polygon(aes( group = group, fill = region))+
+  geom_text(aes(label = region), data = region.lab.data,  size = 3, hjust = 0.5)+
+  scale_fill_viridis_d()+
+  theme_void()+
+  theme(legend.position = "none")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

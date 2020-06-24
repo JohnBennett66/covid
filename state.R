@@ -10,7 +10,6 @@ if_else(wd == "C:/Users/Newtboy/Documents/R4FUN/COVID",
         print("wrong directory"), 
         missing = NULL)
 
-
 # SINGLE STATE :: DEATH CHART
 single.state <- us.state[state == st]
 # variables for limits, placements, etc
