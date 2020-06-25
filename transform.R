@@ -46,6 +46,12 @@ us.date[,deaths_per_mill := (cum_deaths/(pop/1000000))]
 us.date[,cases_per_10mill := (cum_cases/(pop/10000000))]
 us.date[,deaths_per_10mill := (cum_deaths/(pop/10000000))]
 
+us.date[,new_deaths_roll_7_10 := (new_deaths_roll_7 * 10)]
+
+us.state[,cum_cases_lstwk := shift(cum_cases,7), by = state]
+us.state[,pct_chng_lstwk := ((cum_cases - cum_cases_lstwk)/cum_cases_lstwk)*100]
+
+
 
 ### TABLEAU DATASET FOR DETAILS ON US GEO DATA  ####
 # simplify columns

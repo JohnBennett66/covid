@@ -5,7 +5,8 @@ library(dplyr)
 library(data.table)
 library(lubridate)
 library(ggplot2)
-library(maps)
+library(usmaps)
+library(ggthemes)
 library(gridExtra)
 
 
