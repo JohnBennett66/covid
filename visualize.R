@@ -1,3 +1,12 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
+
 ###  VARIOUS VISUALIZATIONS AND ACCOMPANYING DATA BITS  ####
 
 

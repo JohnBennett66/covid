@@ -1,3 +1,12 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
+
 ###  SINGLE STATE CHART #####
 ###  BASED ON 6 TIER STATE CHARTS
 

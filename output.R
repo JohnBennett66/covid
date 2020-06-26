@@ -1,3 +1,12 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
+
 ### OUTPUT FILES FROM VISUALIZATIONS  ####
 
 ### SETUP LOCATION FOR VISUALS

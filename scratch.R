@@ -122,6 +122,32 @@ grid.draw(g)
 
 
 
+plot_usmap("states", data = us.state[date == max(date)], 
+           values = "pct_deaths_lstwk", color = "blue4",
+           labels = TRUE) + 
+  scale_fill_continuous(low = "#ffecec", high = "darkred", name = paste("Percent Change","Deaths",sep = "\n"), label = scales::comma) + 
+  theme(panel.background = element_rect(colour = "black", fill = "lightyellow"),
+        legend.background = element_rect(colour = "black", fill = "lavenderblush"),
+        legend.position = c(.42,.92), legend.direction = "horizontal") +
+  labs(title = "Percent Change in Deaths from Last Week by State",
+       subtitle = paste0("For ",us.date[,max(date)])
+  )
+
+
+
+
+
+world.map <- map_data('world')
+
+ggplot() + 
+  # geom_map(data = world.map, map = world.map, aes(x = long, y = lat, map_id = region),
+  #          fill = 'paleyellow', colour = 'black') + 
+  geom_map(aes(fill = "pink", map_id = region), map = world.map)
+
+
+
+
+
 
 
 

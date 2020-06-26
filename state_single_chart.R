@@ -1,3 +1,12 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
+
 ###  SINGLE STATE :: SINGLE CHART :: CASES AND DEATHS  ####
 ###  
 ###  

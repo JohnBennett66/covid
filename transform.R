@@ -1,3 +1,11 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
 ### DATA TRANSFORMATIONS  ####
 
 ###  US STATES  ####
@@ -50,20 +58,28 @@ us.date[,new_deaths_roll_7_10 := (new_deaths_roll_7 * 10)]
 
 us.state[,cum_cases_lstwk := shift(cum_cases,7), by = state]
 us.state[,pct_chng_lstwk := ((cum_cases - cum_cases_lstwk)/cum_cases_lstwk)*100]
+us.state[,cum_deaths_lstwk := shift(cum_deaths,7), by = state]
+us.state[,pct_deaths_lstwk := ((cum_deaths - cum_deaths_lstwk)/cum_deaths_lstwk)*100]
 
 
 
 ### TABLEAU DATASET FOR DETAILS ON US GEO DATA  ####
 # simplify columns
-colnames(df.tb) <- c("positive_cases", "county", "date", "state", 
+colnames(df.tb) <- c("cum_cases", "county", "date", "state", 
                      "continent", "source", "new_deaths", "fips", "iso3", "country", 
-                     "iso2", "pos_new_cases", "deaths")
+                     "iso2", "new_cases", "cum_deaths")
 
 us.geo <- df.tb[iso2 == "US"]
 
-geo.world <- df.tb[, max(deaths), by = country]
+geo.world <- df.tb[, .(cum_cases = sum(positive_cases), new_deaths = sum(new_deaths), 
+                       new_cases = sum(pos_new_cases), cum_deaths = sum(deaths)), 
+                   by = .(country, date)]
+setorder(geo.world, country, date)
 
-
+geo.world[,wk_chg_cases := shift(cum_cases,7), by = country]
+geo.world[,mn_chg_cases := shift(cum_cases,28), by = country]
+geo.world[,wk_pctchg_cases := ((cum_cases - wk_chg_cases)/wk_chg_cases)*100]
+geo.world[,mn_pctchg_cases := ((cum_cases - mn_chg_cases)/mn_chg_cases)*100]
 
 
 

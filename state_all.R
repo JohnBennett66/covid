@@ -1,3 +1,12 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
+
+
 ###  ALL STATES CHART #####
 
 ### SETUP LOCATION FOR VISUALS

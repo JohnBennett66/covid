@@ -1,3 +1,10 @@
+###################### ###
+### COVID TRACKING    ####
+### SETUP SCRIPT       ###
+### see processing.R   ###
+### for script list    ###
+###################### ###
+
 
 
 # data.world covid-19 datasource
@@ -20,10 +27,4 @@ df.jh[,rec_num := seq(1:nrow(df.jh))]
 
 
 
-# # contintent to country mapping
-# the "iso2.cvs" was manually completed and verified
-iso2 <- read_csv(file = "iso2.csv", col_names = TRUE, col_types = "ffff", na = c("","N/A"))
-setDT(iso2)
-
-i2 <- iso2
 
