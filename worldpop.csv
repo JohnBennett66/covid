@@ -1,0 +1,263 @@
+iso3c,date,value,indicatorID,indicator,iso2c,country
+ARB,2018,419790588,SP.POP.TOTL,"Population, total",1A,Arab World
+CSS,2018,7358965,SP.POP.TOTL,"Population, total",S3,Caribbean small states
+CEB,2018,102530626,SP.POP.TOTL,"Population, total",B8,Central Europe and the Baltics
+EAR,2018,3249139605,SP.POP.TOTL,"Population, total",V2,Early-demographic dividend
+EAS,2018,2328138066,SP.POP.TOTL,"Population, total",Z4,East Asia & Pacific
+EAP,2018,2081651801,SP.POP.TOTL,"Population, total",4E,East Asia & Pacific (excluding high income)
+TEA,2018,2056064424,SP.POP.TOTL,"Population, total",T4,East Asia & Pacific (IDA & IBRD countries)
+EMU,2018,341858176,SP.POP.TOTL,"Population, total",XC,Euro area
+ECS,2018,917973802,SP.POP.TOTL,"Population, total",Z7,Europe & Central Asia
+ECA,2018,416944914,SP.POP.TOTL,"Population, total",7E,Europe & Central Asia (excluding high income)
+TEC,2018,459007507,SP.POP.TOTL,"Population, total",T7,Europe & Central Asia (IDA & IBRD countries)
+EUU,2018,446786293,SP.POP.TOTL,"Population, total",EU,European Union
+FCS,2018,743958386,SP.POP.TOTL,"Population, total",F1,Fragile and conflict affected situations
+HPC,2018,780234406,SP.POP.TOTL,"Population, total",XE,Heavily indebted poor countries (HIPC)
+HIC,2018,1209780930,SP.POP.TOTL,"Population, total",XD,High income
+IBD,2018,4772259249,SP.POP.TOTL,"Population, total",XF,IBRD only
+IBT,2018,6411664536,SP.POP.TOTL,"Population, total",ZT,IDA & IBRD total
+IDB,2018,554990771,SP.POP.TOTL,"Population, total",XH,IDA blend
+IDX,2018,1084414516,SP.POP.TOTL,"Population, total",XI,IDA only
+IDA,2018,1639405287,SP.POP.TOTL,"Population, total",XG,IDA total
+LTE,2018,2287825323,SP.POP.TOTL,"Population, total",V3,Late-demographic dividend
+LCN,2018,641357466,SP.POP.TOTL,"Population, total",ZJ,Latin America & Caribbean
+LAC,2018,609013934,SP.POP.TOTL,"Population, total",XJ,Latin America & Caribbean (excluding high income)
+TLA,2018,625569713,SP.POP.TOTL,"Population, total",T2,Latin America & the Caribbean (IDA & IBRD countries)
+LDC,2018,1009662578,SP.POP.TOTL,"Population, total",XL,Least developed countries: UN classification
+LMY,2018,6383105866,SP.POP.TOTL,"Population, total",XO,Low & middle income
+LIC,2018,705417321,SP.POP.TOTL,"Population, total",XM,Low income
+LMC,2018,3022072335,SP.POP.TOTL,"Population, total",XN,Lower middle income
+MEA,2018,448912959,SP.POP.TOTL,"Population, total",ZQ,Middle East & North Africa
+MNA,2018,382896715,SP.POP.TOTL,"Population, total",XQ,Middle East & North Africa (excluding high income)
+TMN,2018,378327628,SP.POP.TOTL,"Population, total",T3,Middle East & North Africa (IDA & IBRD countries)
+MIC,2018,5677688545,SP.POP.TOTL,"Population, total",XP,Middle income
+NAC,2018,363809239,SP.POP.TOTL,"Population, total",XU,North America
+OED,2018,1302998740,SP.POP.TOTL,"Population, total",OE,OECD members
+OSS,2018,30760211,SP.POP.TOTL,"Population, total",S4,Other small states
+PSS,2018,2457367,SP.POP.TOTL,"Population, total",S2,Pacific island small states
+PST,2018,1109455397,SP.POP.TOTL,"Population, total",V4,Post-demographic dividend
+PRE,2018,919485393,SP.POP.TOTL,"Population, total",V1,Pre-demographic dividend
+SST,2018,40576543,SP.POP.TOTL,"Population, total",S1,Small states
+SAS,2018,1814388744,SP.POP.TOTL,"Population, total",8S,South Asia
+TSA,2018,1814388744,SP.POP.TOTL,"Population, total",T5,South Asia (IDA & IBRD)
+SSF,2018,1078306520,SP.POP.TOTL,"Population, total",ZG,Sub-Saharan Africa
+SSA,2018,1078209758,SP.POP.TOTL,"Population, total",ZF,Sub-Saharan Africa (excluding high income)
+TSS,2018,1078306520,SP.POP.TOTL,"Population, total",T6,Sub-Saharan Africa (IDA & IBRD countries)
+UMC,2018,2655616210,SP.POP.TOTL,"Population, total",XT,Upper middle income
+WLD,2018,7592886796,SP.POP.TOTL,"Population, total",1W,World
+AFG,2018,37172386,SP.POP.TOTL,"Population, total",AF,Afghanistan
+ALB,2018,2866376,SP.POP.TOTL,"Population, total",AL,Albania
+DZA,2018,42228429,SP.POP.TOTL,"Population, total",DZ,Algeria
+ASM,2018,55465,SP.POP.TOTL,"Population, total",AS,American Samoa
+AND,2018,77006,SP.POP.TOTL,"Population, total",AD,Andorra
+AGO,2018,30809762,SP.POP.TOTL,"Population, total",AO,Angola
+ATG,2018,96286,SP.POP.TOTL,"Population, total",AG,Antigua and Barbuda
+ARG,2018,44494502,SP.POP.TOTL,"Population, total",AR,Argentina
+ARM,2018,2951776,SP.POP.TOTL,"Population, total",AM,Armenia
+ABW,2018,105845,SP.POP.TOTL,"Population, total",AW,Aruba
+AUS,2018,24982688,SP.POP.TOTL,"Population, total",AU,Australia
+AUT,2018,8840521,SP.POP.TOTL,"Population, total",AT,Austria
+AZE,2018,9939800,SP.POP.TOTL,"Population, total",AZ,Azerbaijan
+BHS,2018,385640,SP.POP.TOTL,"Population, total",BS,"Bahamas, The"
+BHR,2018,1569439,SP.POP.TOTL,"Population, total",BH,Bahrain
+BGD,2018,161356039,SP.POP.TOTL,"Population, total",BD,Bangladesh
+BRB,2018,286641,SP.POP.TOTL,"Population, total",BB,Barbados
+BLR,2018,9483499,SP.POP.TOTL,"Population, total",BY,Belarus
+BEL,2018,11433256,SP.POP.TOTL,"Population, total",BE,Belgium
+BLZ,2018,383071,SP.POP.TOTL,"Population, total",BZ,Belize
+BEN,2018,11485048,SP.POP.TOTL,"Population, total",BJ,Benin
+BMU,2018,63973,SP.POP.TOTL,"Population, total",BM,Bermuda
+BTN,2018,754394,SP.POP.TOTL,"Population, total",BT,Bhutan
+BOL,2018,11353142,SP.POP.TOTL,"Population, total",BO,Bolivia
+BIH,2018,3323929,SP.POP.TOTL,"Population, total",BA,Bosnia and Herzegovina
+BWA,2018,2254126,SP.POP.TOTL,"Population, total",BW,Botswana
+BRA,2018,209469333,SP.POP.TOTL,"Population, total",BR,Brazil
+VGB,2018,29802,SP.POP.TOTL,"Population, total",VG,British Virgin Islands
+BRN,2018,428962,SP.POP.TOTL,"Population, total",BN,Brunei Darussalam
+BGR,2018,7025037,SP.POP.TOTL,"Population, total",BG,Bulgaria
+BFA,2018,19751535,SP.POP.TOTL,"Population, total",BF,Burkina Faso
+BDI,2018,11175378,SP.POP.TOTL,"Population, total",BI,Burundi
+CPV,2018,543767,SP.POP.TOTL,"Population, total",CV,Cabo Verde
+KHM,2018,16249798,SP.POP.TOTL,"Population, total",KH,Cambodia
+CMR,2018,25216237,SP.POP.TOTL,"Population, total",CM,Cameroon
+CAN,2018,37057765,SP.POP.TOTL,"Population, total",CA,Canada
+CYM,2018,64174,SP.POP.TOTL,"Population, total",KY,Cayman Islands
+CAF,2018,4666377,SP.POP.TOTL,"Population, total",CF,Central African Republic
+TCD,2018,15477751,SP.POP.TOTL,"Population, total",TD,Chad
+CHI,2018,170499,SP.POP.TOTL,"Population, total",JG,Channel Islands
+CHL,2018,18729160,SP.POP.TOTL,"Population, total",CL,Chile
+CHN,2018,1392730000,SP.POP.TOTL,"Population, total",CN,China
+COL,2018,49648685,SP.POP.TOTL,"Population, total",CO,Colombia
+COM,2018,832322,SP.POP.TOTL,"Population, total",KM,Comoros
+COD,2018,84068091,SP.POP.TOTL,"Population, total",CD,"Congo, Dem. Rep."
+COG,2018,5244363,SP.POP.TOTL,"Population, total",CG,"Congo, Rep."
+CRI,2018,4999441,SP.POP.TOTL,"Population, total",CR,Costa Rica
+CIV,2018,25069229,SP.POP.TOTL,"Population, total",CI,Cote d'Ivoire
+HRV,2018,4087843,SP.POP.TOTL,"Population, total",HR,Croatia
+CUB,2018,11338138,SP.POP.TOTL,"Population, total",CU,Cuba
+CUW,2018,159800,SP.POP.TOTL,"Population, total",CW,Curacao
+CYP,2018,1189265,SP.POP.TOTL,"Population, total",CY,Cyprus
+CZE,2018,10629928,SP.POP.TOTL,"Population, total",CZ,Czech Republic
+DNK,2018,5793636,SP.POP.TOTL,"Population, total",DK,Denmark
+DJI,2018,958920,SP.POP.TOTL,"Population, total",DJ,Djibouti
+DMA,2018,71625,SP.POP.TOTL,"Population, total",DM,Dominica
+DOM,2018,10627165,SP.POP.TOTL,"Population, total",DO,Dominican Republic
+ECU,2018,17084357,SP.POP.TOTL,"Population, total",EC,Ecuador
+EGY,2018,98423595,SP.POP.TOTL,"Population, total",EG,"Egypt, Arab Rep."
+SLV,2018,6420744,SP.POP.TOTL,"Population, total",SV,El Salvador
+GNQ,2018,1308974,SP.POP.TOTL,"Population, total",GQ,Equatorial Guinea
+EST,2018,1321977,SP.POP.TOTL,"Population, total",EE,Estonia
+SWZ,2018,1136191,SP.POP.TOTL,"Population, total",SZ,Eswatini
+ETH,2018,109224559,SP.POP.TOTL,"Population, total",ET,Ethiopia
+FRO,2018,48497,SP.POP.TOTL,"Population, total",FO,Faroe Islands
+FJI,2018,883483,SP.POP.TOTL,"Population, total",FJ,Fiji
+FIN,2018,5515525,SP.POP.TOTL,"Population, total",FI,Finland
+FRA,2018,66977107,SP.POP.TOTL,"Population, total",FR,France
+PYF,2018,277679,SP.POP.TOTL,"Population, total",PF,French Polynesia
+GAB,2018,2119275,SP.POP.TOTL,"Population, total",GA,Gabon
+GMB,2018,2280102,SP.POP.TOTL,"Population, total",GM,"Gambia, The"
+GEO,2018,3726549,SP.POP.TOTL,"Population, total",GE,Georgia
+DEU,2018,82905782,SP.POP.TOTL,"Population, total",DE,Germany
+GHA,2018,29767108,SP.POP.TOTL,"Population, total",GH,Ghana
+GIB,2018,33718,SP.POP.TOTL,"Population, total",GI,Gibraltar
+GRC,2018,10731726,SP.POP.TOTL,"Population, total",GR,Greece
+GRL,2018,56025,SP.POP.TOTL,"Population, total",GL,Greenland
+GRD,2018,111454,SP.POP.TOTL,"Population, total",GD,Grenada
+GUM,2018,165768,SP.POP.TOTL,"Population, total",GU,Guam
+GTM,2018,17247807,SP.POP.TOTL,"Population, total",GT,Guatemala
+GIN,2018,12414318,SP.POP.TOTL,"Population, total",GN,Guinea
+GNB,2018,1874309,SP.POP.TOTL,"Population, total",GW,Guinea-Bissau
+GUY,2018,779004,SP.POP.TOTL,"Population, total",GY,Guyana
+HTI,2018,11123176,SP.POP.TOTL,"Population, total",HT,Haiti
+HND,2018,9587522,SP.POP.TOTL,"Population, total",HN,Honduras
+HKG,2018,7451000,SP.POP.TOTL,"Population, total",HK,"Hong Kong SAR, China"
+HUN,2018,9775564,SP.POP.TOTL,"Population, total",HU,Hungary
+ISL,2018,352721,SP.POP.TOTL,"Population, total",IS,Iceland
+IND,2018,1352617328,SP.POP.TOTL,"Population, total",IN,India
+IDN,2018,267663435,SP.POP.TOTL,"Population, total",ID,Indonesia
+IRN,2018,81800269,SP.POP.TOTL,"Population, total",IR,"Iran, Islamic Rep."
+IRQ,2018,38433600,SP.POP.TOTL,"Population, total",IQ,Iraq
+IRL,2018,4867309,SP.POP.TOTL,"Population, total",IE,Ireland
+IMN,2018,84077,SP.POP.TOTL,"Population, total",IM,Isle of Man
+ISR,2018,8882800,SP.POP.TOTL,"Population, total",IL,Israel
+ITA,2018,60421760,SP.POP.TOTL,"Population, total",IT,Italy
+JAM,2018,2934855,SP.POP.TOTL,"Population, total",JM,Jamaica
+JPN,2018,126529100,SP.POP.TOTL,"Population, total",JP,Japan
+JOR,2018,9956011,SP.POP.TOTL,"Population, total",JO,Jordan
+KAZ,2018,18272430,SP.POP.TOTL,"Population, total",KZ,Kazakhstan
+KEN,2018,51393010,SP.POP.TOTL,"Population, total",KE,Kenya
+KIR,2018,115847,SP.POP.TOTL,"Population, total",KI,Kiribati
+PRK,2018,25549819,SP.POP.TOTL,"Population, total",KP,"Korea, Dem. People’s Rep."
+KOR,2018,51606633,SP.POP.TOTL,"Population, total",KR,"Korea, Rep."
+XKX,2018,1845300,SP.POP.TOTL,"Population, total",XK,Kosovo
+KWT,2018,4137309,SP.POP.TOTL,"Population, total",KW,Kuwait
+KGZ,2018,6322800,SP.POP.TOTL,"Population, total",KG,Kyrgyz Republic
+LAO,2018,7061507,SP.POP.TOTL,"Population, total",LA,Lao PDR
+LVA,2018,1927174,SP.POP.TOTL,"Population, total",LV,Latvia
+LBN,2018,6848925,SP.POP.TOTL,"Population, total",LB,Lebanon
+LSO,2018,2108132,SP.POP.TOTL,"Population, total",LS,Lesotho
+LBR,2018,4818977,SP.POP.TOTL,"Population, total",LR,Liberia
+LBY,2018,6678567,SP.POP.TOTL,"Population, total",LY,Libya
+LIE,2018,37910,SP.POP.TOTL,"Population, total",LI,Liechtenstein
+LTU,2018,2801543,SP.POP.TOTL,"Population, total",LT,Lithuania
+LUX,2018,607950,SP.POP.TOTL,"Population, total",LU,Luxembourg
+MAC,2018,631636,SP.POP.TOTL,"Population, total",MO,"Macao SAR, China"
+MDG,2018,26262368,SP.POP.TOTL,"Population, total",MG,Madagascar
+MWI,2018,18143315,SP.POP.TOTL,"Population, total",MW,Malawi
+MYS,2018,31528585,SP.POP.TOTL,"Population, total",MY,Malaysia
+MDV,2018,515696,SP.POP.TOTL,"Population, total",MV,Maldives
+MLI,2018,19077690,SP.POP.TOTL,"Population, total",ML,Mali
+MLT,2018,484630,SP.POP.TOTL,"Population, total",MT,Malta
+MHL,2018,58413,SP.POP.TOTL,"Population, total",MH,Marshall Islands
+MRT,2018,4403319,SP.POP.TOTL,"Population, total",MR,Mauritania
+MUS,2018,1265303,SP.POP.TOTL,"Population, total",MU,Mauritius
+MEX,2018,126190788,SP.POP.TOTL,"Population, total",MX,Mexico
+FSM,2018,112640,SP.POP.TOTL,"Population, total",FM,"Micronesia, Fed. Sts."
+MDA,2018,2706049,SP.POP.TOTL,"Population, total",MD,Moldova
+MCO,2018,38682,SP.POP.TOTL,"Population, total",MC,Monaco
+MNG,2018,3170208,SP.POP.TOTL,"Population, total",MN,Mongolia
+MNE,2018,622227,SP.POP.TOTL,"Population, total",ME,Montenegro
+MAR,2018,36029138,SP.POP.TOTL,"Population, total",MA,Morocco
+MOZ,2018,29495962,SP.POP.TOTL,"Population, total",MZ,Mozambique
+MMR,2018,53708395,SP.POP.TOTL,"Population, total",MM,Myanmar
+NAM,2018,2448255,SP.POP.TOTL,"Population, total",NA,Namibia
+NRU,2018,12704,SP.POP.TOTL,"Population, total",NR,Nauru
+NPL,2018,28087871,SP.POP.TOTL,"Population, total",NP,Nepal
+NLD,2018,17231624,SP.POP.TOTL,"Population, total",NL,Netherlands
+NCL,2018,284060,SP.POP.TOTL,"Population, total",NC,New Caledonia
+NZL,2018,4841000,SP.POP.TOTL,"Population, total",NZ,New Zealand
+NIC,2018,6465513,SP.POP.TOTL,"Population, total",NI,Nicaragua
+NER,2018,22442948,SP.POP.TOTL,"Population, total",NE,Niger
+NGA,2018,195874740,SP.POP.TOTL,"Population, total",NG,Nigeria
+MKD,2018,2082958,SP.POP.TOTL,"Population, total",MK,North Macedonia
+MNP,2018,56882,SP.POP.TOTL,"Population, total",MP,Northern Mariana Islands
+NOR,2018,5311916,SP.POP.TOTL,"Population, total",NO,Norway
+OMN,2018,4829483,SP.POP.TOTL,"Population, total",OM,Oman
+PAK,2018,212215030,SP.POP.TOTL,"Population, total",PK,Pakistan
+PLW,2018,17907,SP.POP.TOTL,"Population, total",PW,Palau
+PAN,2018,4176873,SP.POP.TOTL,"Population, total",PA,Panama
+PNG,2018,8606316,SP.POP.TOTL,"Population, total",PG,Papua New Guinea
+PRY,2018,6956071,SP.POP.TOTL,"Population, total",PY,Paraguay
+PER,2018,31989256,SP.POP.TOTL,"Population, total",PE,Peru
+PHL,2018,106651922,SP.POP.TOTL,"Population, total",PH,Philippines
+POL,2018,37974750,SP.POP.TOTL,"Population, total",PL,Poland
+PRT,2018,10283822,SP.POP.TOTL,"Population, total",PT,Portugal
+PRI,2018,3195153,SP.POP.TOTL,"Population, total",PR,Puerto Rico
+QAT,2018,2781677,SP.POP.TOTL,"Population, total",QA,Qatar
+ROU,2018,19466145,SP.POP.TOTL,"Population, total",RO,Romania
+RUS,2018,144478050,SP.POP.TOTL,"Population, total",RU,Russian Federation
+RWA,2018,12301939,SP.POP.TOTL,"Population, total",RW,Rwanda
+WSM,2018,196130,SP.POP.TOTL,"Population, total",WS,Samoa
+SMR,2018,33785,SP.POP.TOTL,"Population, total",SM,San Marino
+STP,2018,211028,SP.POP.TOTL,"Population, total",ST,Sao Tome and Principe
+SAU,2018,33699947,SP.POP.TOTL,"Population, total",SA,Saudi Arabia
+SEN,2018,15854360,SP.POP.TOTL,"Population, total",SN,Senegal
+SRB,2018,6982604,SP.POP.TOTL,"Population, total",RS,Serbia
+SYC,2018,96762,SP.POP.TOTL,"Population, total",SC,Seychelles
+SLE,2018,7650154,SP.POP.TOTL,"Population, total",SL,Sierra Leone
+SGP,2018,5638676,SP.POP.TOTL,"Population, total",SG,Singapore
+SXM,2018,40654,SP.POP.TOTL,"Population, total",SX,Sint Maarten (Dutch part)
+SVK,2018,5446771,SP.POP.TOTL,"Population, total",SK,Slovak Republic
+SVN,2018,2073894,SP.POP.TOTL,"Population, total",SI,Slovenia
+SLB,2018,652858,SP.POP.TOTL,"Population, total",SB,Solomon Islands
+SOM,2018,15008154,SP.POP.TOTL,"Population, total",SO,Somalia
+ZAF,2018,57779622,SP.POP.TOTL,"Population, total",ZA,South Africa
+SSD,2018,10975920,SP.POP.TOTL,"Population, total",SS,South Sudan
+ESP,2018,46796540,SP.POP.TOTL,"Population, total",ES,Spain
+LKA,2018,21670000,SP.POP.TOTL,"Population, total",LK,Sri Lanka
+KNA,2018,52441,SP.POP.TOTL,"Population, total",KN,St. Kitts and Nevis
+LCA,2018,181889,SP.POP.TOTL,"Population, total",LC,St. Lucia
+MAF,2018,37264,SP.POP.TOTL,"Population, total",MF,St. Martin (French part)
+VCT,2018,110210,SP.POP.TOTL,"Population, total",VC,St. Vincent and the Grenadines
+SDN,2018,41801533,SP.POP.TOTL,"Population, total",SD,Sudan
+SUR,2018,575991,SP.POP.TOTL,"Population, total",SR,Suriname
+SWE,2018,10175214,SP.POP.TOTL,"Population, total",SE,Sweden
+CHE,2018,8513227,SP.POP.TOTL,"Population, total",CH,Switzerland
+SYR,2018,16906283,SP.POP.TOTL,"Population, total",SY,Syrian Arab Republic
+TJK,2018,9100837,SP.POP.TOTL,"Population, total",TJ,Tajikistan
+TZA,2018,56318348,SP.POP.TOTL,"Population, total",TZ,Tanzania
+THA,2018,69428524,SP.POP.TOTL,"Population, total",TH,Thailand
+TLS,2018,1267972,SP.POP.TOTL,"Population, total",TL,Timor-Leste
+TGO,2018,7889094,SP.POP.TOTL,"Population, total",TG,Togo
+TON,2018,103197,SP.POP.TOTL,"Population, total",TO,Tonga
+TTO,2018,1389858,SP.POP.TOTL,"Population, total",TT,Trinidad and Tobago
+TUN,2018,11565204,SP.POP.TOTL,"Population, total",TN,Tunisia
+TUR,2018,82319724,SP.POP.TOTL,"Population, total",TR,Turkey
+TKM,2018,5850908,SP.POP.TOTL,"Population, total",TM,Turkmenistan
+TCA,2018,37665,SP.POP.TOTL,"Population, total",TC,Turks and Caicos Islands
+TUV,2018,11508,SP.POP.TOTL,"Population, total",TV,Tuvalu
+UGA,2018,42723139,SP.POP.TOTL,"Population, total",UG,Uganda
+UKR,2018,44622516,SP.POP.TOTL,"Population, total",UA,Ukraine
+ARE,2018,9630959,SP.POP.TOTL,"Population, total",AE,United Arab Emirates
+GBR,2018,66460344,SP.POP.TOTL,"Population, total",GB,United Kingdom
+USA,2018,326687501,SP.POP.TOTL,"Population, total",US,United States
+URY,2018,3449299,SP.POP.TOTL,"Population, total",UY,Uruguay
+UZB,2018,32955400,SP.POP.TOTL,"Population, total",UZ,Uzbekistan
+VUT,2018,292680,SP.POP.TOTL,"Population, total",VU,Vanuatu
+VEN,2018,28870195,SP.POP.TOTL,"Population, total",VE,"Venezuela, RB"
+VNM,2018,95540395,SP.POP.TOTL,"Population, total",VN,Vietnam
+VIR,2018,106977,SP.POP.TOTL,"Population, total",VI,Virgin Islands (U.S.)
+PSE,2018,4569087,SP.POP.TOTL,"Population, total",PS,West Bank and Gaza
+YEM,2018,28498687,SP.POP.TOTL,"Population, total",YE,"Yemen, Rep."
+ZMB,2018,17351822,SP.POP.TOTL,"Population, total",ZM,Zambia
+ZWE,2018,14439018,SP.POP.TOTL,"Population, total",ZW,Zimbabwe
